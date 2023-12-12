@@ -18,7 +18,7 @@ class MainActivity : AppCompatActivity() {
             .replace(R.id.fragmentContainerView, SettingsFragment()).commit()
         val create = ApiCillent.getRetrofit().create(ApiService::class.java)
         lifecycleScope.launch {
-            val time = create.getRegionNamazTime("Xonqa").times?.tongSaharlik
+            val time = create.loadRegionNamazTime("Xonqa").times?.tongSaharlik
             Log.d("TAG", "onCreate: $time")
         }
     }
