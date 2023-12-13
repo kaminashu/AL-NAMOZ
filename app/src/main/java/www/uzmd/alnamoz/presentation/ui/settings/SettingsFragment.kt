@@ -6,8 +6,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
+import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.get
 import www.uzmd.alnamoz.R
 import www.uzmd.alnamoz.databinding.FragmentSettingsBinding
+import www.uzmd.alnamoz.presentation.NamazViewModel
 import java.lang.RuntimeException
 
 // TODO: Rename parameter arguments, choose names that match
@@ -25,6 +28,9 @@ class SettingsFragment : Fragment() {
     private var param1: String? = null
     private var param2: String? = null
     private var _binding: FragmentSettingsBinding? = null
+    private val viewModel:NamazViewModel by lazy {
+        ViewModelProvider(this).get(NamazViewModel::class.java)
+    }
 
     private val binding: FragmentSettingsBinding
         get() = _binding ?: throw RuntimeException("Binding da hatolik")
@@ -54,6 +60,8 @@ class SettingsFragment : Fragment() {
         ms.add("Urganch")
         val arrayAdapter = ArrayAdapter(requireContext(), R.layout.drop_down_item, ms)
         binding.autoCompleteTextView.setAdapter(arrayAdapter)
+
+        viewModel.addUser("kamina","kaminaev","xonqa")
     }
 
     companion object {

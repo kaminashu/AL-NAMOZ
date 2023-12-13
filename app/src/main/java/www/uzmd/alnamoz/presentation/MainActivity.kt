@@ -16,10 +16,10 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         supportFragmentManager.beginTransaction()
             .replace(R.id.fragmentContainerView, SettingsFragment()).commit()
-        val create = ApiCillent.getRetrofit().create(ApiService::class.java)
+      /*  val create = ApiCillent.getRetrofit().create(ApiService::class.java)
         lifecycleScope.launch {
             val time = create.getRegionNamazTime("Xonqa").times?.tongSaharlik
             Log.d("TAG", "onCreate: $time")
-        }
+        }*/
     }
 }
