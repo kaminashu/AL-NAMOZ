@@ -6,11 +6,14 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
+import androidx.lifecycle.AndroidViewModel
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.get
 import www.uzmd.alnamoz.R
 import www.uzmd.alnamoz.databinding.FragmentSettingsBinding
 import www.uzmd.alnamoz.presentation.NamazViewModel
+import www.uzmd.alnamoz.presentation.ui.main.MainFragment
 import java.lang.RuntimeException
 
 // TODO: Rename parameter arguments, choose names that match
@@ -28,8 +31,8 @@ class SettingsFragment : Fragment() {
     private var param1: String? = null
     private var param2: String? = null
     private var _binding: FragmentSettingsBinding? = null
-    private val viewModel:NamazViewModel by lazy {
-        ViewModelProvider(this).get(NamazViewModel::class.java)
+    private val viewModel: NamazViewModel by lazy {
+        ViewModelProvider(requireActivity()).get(NamazViewModel::class.java)
     }
 
     private val binding: FragmentSettingsBinding
@@ -60,8 +63,16 @@ class SettingsFragment : Fragment() {
         ms.add("Urganch")
         val arrayAdapter = ArrayAdapter(requireContext(), R.layout.drop_down_item, ms)
         binding.autoCompleteTextView.setAdapter(arrayAdapter)
-
-        viewModel.addUser("kamina","kaminaev","xonqa")
+        binding.kirishBtn.setOnClickListener {
+            val rayon = binding.autoCompleteTextView.text.toString()
+            val name = binding.ismEdt.text.toString()
+            val familia = binding.familiaEdt.text.toString()
+            viewModel.addUser(name, familia, rayon)
+        }
+        viewModel.btnLiveData.observe(viewLifecycleOwner, Observer {
+            requireActivity().supportFragmentManager.beginTransaction()
+                .replace(R.id.fragmentContainerView, MainFragment()).commit()
+        })
     }
 
     companion object {

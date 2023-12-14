@@ -5,7 +5,10 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import www.uzmd.alnamoz.R
+import androidx.lifecycle.ViewModelProvider
+import www.uzmd.alnamoz.databinding.FragmentMainBinding
+import www.uzmd.alnamoz.presentation.NamazViewModel
+import java.lang.RuntimeException
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -21,6 +24,13 @@ class MainFragment : Fragment() {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
+    private var _binding: FragmentMainBinding? = null
+    private val viewModel by lazy {
+        ViewModelProvider(this)[MainFragmentViewModel::class.java]
+    }
+
+    private val binding: FragmentMainBinding
+        get() = _binding ?: throw RuntimeException("Binding da muammo bor")
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -34,8 +44,29 @@ class MainFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?,
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_main, container, false)
+        _binding =
+            FragmentMainBinding.inflate(LayoutInflater.from(container?.context), container, false)
+        return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        val times = viewModel.getTimes()
+        var saxarlik = times.tongSaharlik.toString()
+        var quyosh = times.quyosh.toString()
+        var peshin = times.peshin.toString()
+        var asr = times.asr.toString()
+        var hufton = times.hufton.toString()
+        var shom = times.shomIftor.toString()
+        binding.apply {
+            bomdotTime.text = saxarlik
+            namazAsrTime.text = asr
+            namazXuftomTime.text = hufton
+            namazShomTime.text = shom
+            namazPeshinTime.text = peshin
+        }
+        val userInfofunc = viewModel.getUserInfofunc()
+        binding.mintaqaTxt.text="Mintaqa : ${userInfofunc.region}"
     }
 
     companion object {

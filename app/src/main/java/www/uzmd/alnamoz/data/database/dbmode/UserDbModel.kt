@@ -1,4 +1,4 @@
-package www.uzmd.alnamoz.data.database.db
+package www.uzmd.alnamoz.data.database.dbmode
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
