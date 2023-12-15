@@ -7,6 +7,16 @@
     tools:context=".presentation.ui.main.MainFragment">
 
     <ImageView
+        android:id="@+id/userSettings"
+        android:layout_width="80dp"
+        android:layout_height="0dp"
+        android:padding="5dp"
+        android:src="@drawable/user"
+        app:layout_constraintBottom_toBottomOf="@id/guidelineHorizantal1"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
         android:id="@+id/locationImg"
         android:layout_width="30dp"
         android:layout_height="30dp"
@@ -14,10 +24,24 @@
         android:padding="5dp"
         android:src="@drawable/location"
         app:layout_constraintBottom_toTopOf="@id/guidelineHorizantal1"
-        app:layout_constraintLeft_toLeftOf="parent" />
-
+        app:layout_constraintLeft_toRightOf="@id/userSettings" />
 
     <TextView
+        android:id="@+id/userNameMain"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:autoSizeTextType="uniform"
+        android:fontFamily="@font/giveny"
+        android:gravity="center"
+        android:padding="5dp"
+        android:text="Salom Ortiqboy"
+        app:layout_constraintBottom_toTopOf="@id/mintaqaTxt"
+        app:layout_constraintLeft_toRightOf="@id/userSettings"
+        app:layout_constraintRight_toRightOf="@id/guidelineVertical1"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+
         android:id="@+id/mintaqaTxt"
         android:layout_width="wrap_content"
         android:layout_height="30dp"
@@ -29,12 +53,14 @@
         app:layout_constraintLeft_toRightOf="@id/locationImg" />
 
     <ImageView
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:layout_marginBottom="-10dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:src="@drawable/mainmenuicon"
         app:layout_constraintBottom_toTopOf="@id/guidelineHorizantal1"
-        app:layout_constraintLeft_toRightOf="@id/guidelineVertical1" />
+        app:layout_constraintLeft_toLeftOf="@id/guidelineVertical1"
+        app:layout_constraintLeft_toRightOf="@id/guidelineVertical1"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.cardview.widget.CardView
 
@@ -62,19 +88,23 @@
                 app:layout_constraintRight_toRightOf="parent" />
 
             <TextView
+                android:id="@+id/nextNamazTime"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 android:autoSizeTextType="uniform"
-                android:fontFamily="@font/giveny"
                 android:gravity="center"
-                android:padding="15dp"
+                android:maxLines="1"
+                android:shadowColor="@color/black"
                 android:text="% ga % soat % daqiqa qoldi"
+                android:textColor="#89FF00"
+                android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toLeftOf="@id/guidlineConstrainIchi"
+                app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/guidlineConstrainIchiHorizantal" />
 
             <TextView
+                android:id="@+id/localTime"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 android:autoSizeTextType="uniform"
@@ -82,10 +112,12 @@
                 android:gravity="center"
                 android:padding="10dp"
                 android:text="% : %"
-                app:layout_constraintBottom_toTopOf="@id/guidlineConstrainIchiHorizantal"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toLeftOf="@id/guidlineConstrainIchi"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.0" />
 
             <androidx.constraintlayout.widget.Guideline
                 android:id="@+id/guidlineConstrainIchi"
@@ -99,7 +131,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                app:layout_constraintGuide_percent="0.65" />
+                app:layout_constraintGuide_percent="0.8" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
 
@@ -109,7 +141,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.07" />
+        app:layout_constraintGuide_percent="0.1" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guidelineVertical1"
@@ -123,432 +155,481 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.3" />
+        app:layout_constraintGuide_percent="0.35" />
 
-    <androidx.cardview.widget.CardView
-        android:id="@+id/cardView1"
-        android:layout_marginStart="10dp"
-        android:layout_marginEnd="10dp"
-        android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:layout_marginTop="5dp"
-        app:layout_constraintTop_toBottomOf="@id/guidelineHorizantal2">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/guidelineHorizantal2"
+        app:layout_constraintVertical_bias="0.0">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardView1"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="0dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="10dp"
+            app:layout_constraintBottom_toBottomOf="@id/guideline2Cons"
+            app:layout_constraintTop_toTopOf="parent">
 
-            <ImageView
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
 
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:padding="2dp"
-                android:src="@drawable/item_icon"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toLeftOf="@id/bomdotguidelineItem1"
-                app:layout_constraintTop_toTopOf="parent" />
+                <ImageView
 
-            <TextView
-                android:id="@+id/namazBomdot"
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:autoSizeTextType="uniform"
-                android:fontFamily="@font/giveny"
-                android:gravity="center_vertical"
-                android:padding="10dp"
-                android:text="Bomdot"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintLeft_toLeftOf="@id/bomdotguidelineItem1"
-                app:layout_constraintRight_toLeftOf="@id/bomdotguidelineItem2"
-                app:layout_constraintTop_toTopOf="parent" />
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:padding="2dp"
+                    android:src="@drawable/item_icon"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toLeftOf="@id/bomdotguidelineItem1"
+                    app:layout_constraintTop_toTopOf="parent" />
 
-            <TextView
-                android:id="@+id/bomdotTime"
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:autoSizeTextType="uniform"
-                android:fontFamily="@font/giveny"
-                android:gravity="center"
-                android:padding="10dp"
-                android:text="16:22"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintLeft_toLeftOf="@id/bomdotguidelineItem2"
-                app:layout_constraintRight_toLeftOf="@id/bomdotguidelineItem3"
-                app:layout_constraintTop_toTopOf="parent" />
+                <TextView
+                    android:id="@+id/namazBomdot"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:autoSizeTextType="uniform"
+                    android:fontFamily="@font/giveny"
+                    android:gravity="center_vertical"
+                    android:padding="10dp"
+                    android:text="Bomdot"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintLeft_toLeftOf="@id/bomdotguidelineItem1"
+                    app:layout_constraintRight_toLeftOf="@id/bomdotguidelineItem2"
+                    app:layout_constraintTop_toTopOf="parent" />
 
-            <ImageView
-                android:id="@+id/bomdotAudio"
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:padding="10dp"
-                android:src="@drawable/sound"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintLeft_toLeftOf="@id/bomdotguidelineItem3"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                <TextView
+                    android:id="@+id/bomdotTime"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:autoSizeTextType="uniform"
+                    android:fontFamily="@font/giveny"
+                    android:gravity="center"
+                    android:maxLines="1"
+                    android:padding="10dp"
+                    android:text="16:22"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintLeft_toLeftOf="@id/bomdotguidelineItem2"
+                    app:layout_constraintRight_toLeftOf="@id/bomdotguidelineItem3"
+                    app:layout_constraintTop_toTopOf="parent" />
 
-            <androidx.constraintlayout.widget.Guideline
-                android:id="@+id/bomdotguidelineItem1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                app:layout_constraintGuide_percent="0.15" />
+                <ImageView
+                    android:id="@+id/bomdotAudio"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:padding="10dp"
+                    android:src="@drawable/sound"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintLeft_toLeftOf="@id/bomdotguidelineItem3"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
-            <androidx.constraintlayout.widget.Guideline
-                android:id="@+id/bomdotguidelineItem2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                app:layout_constraintGuide_percent="0.65" />
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/bomdotguidelineItem1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_percent="0.15" />
 
-            <androidx.constraintlayout.widget.Guideline
-                android:id="@+id/bomdotguidelineItem3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                app:layout_constraintGuide_percent="0.85" />
-        </androidx.constraintlayout.widget.ConstraintLayout>
-    </androidx.cardview.widget.CardView>
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/bomdotguidelineItem2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_percent="0.65" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/bomdotguidelineItem3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_percent="0.85" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.cardview.widget.CardView>
 
 
-
-    <androidx.cardview.widget.CardView
-        android:id="@+id/cardView2"
-        android:layout_marginStart="10dp"
-        android:layout_marginEnd="10dp"
-        android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:layout_marginTop="5dp"
-        app:layout_constraintTop_toBottomOf="@id/cardView1">
-
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardView2"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="0dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="10dp"
+            app:layout_constraintBottom_toBottomOf="@id/guideline3Cons"
+            app:layout_constraintTop_toBottomOf="@id/guideline2Cons">
 
-            <ImageView
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
 
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:padding="2dp"
-                android:src="@drawable/item_icon"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toLeftOf="@id/peshinguidelineItem1"
-                app:layout_constraintTop_toTopOf="parent" />
+                <ImageView
 
-            <TextView
-                android:id="@+id/namzPeshin"
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:autoSizeTextType="uniform"
-                android:fontFamily="@font/giveny"
-                android:gravity="center_vertical"
-                android:padding="10dp"
-                android:text="Peshin"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintLeft_toLeftOf="@id/peshinguidelineItem1"
-                app:layout_constraintRight_toLeftOf="@id/peshinguidelineItem2"
-                app:layout_constraintTop_toTopOf="parent" />
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:padding="2dp"
+                    android:src="@drawable/item_icon"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toLeftOf="@id/peshinguidelineItem1"
+                    app:layout_constraintTop_toTopOf="parent" />
 
-            <TextView
-                android:id="@+id/namazPeshinTime"
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:autoSizeTextType="uniform"
-                android:fontFamily="@font/giveny"
-                android:gravity="center"
-                android:padding="10dp"
-                android:text="16:22"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintLeft_toLeftOf="@id/peshinguidelineItem2"
-                app:layout_constraintRight_toLeftOf="@id/peshinguidelineItem3"
-                app:layout_constraintTop_toTopOf="parent" />
+                <TextView
+                    android:id="@+id/namzPeshin"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:autoSizeTextType="uniform"
+                    android:fontFamily="@font/giveny"
+                    android:gravity="center_vertical"
+                    android:padding="10dp"
+                    android:text="Peshin"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintLeft_toLeftOf="@id/peshinguidelineItem1"
+                    app:layout_constraintRight_toLeftOf="@id/peshinguidelineItem2"
+                    app:layout_constraintTop_toTopOf="parent" />
 
-            <ImageView
-                android:id="@+id/namazPeshinAudio"
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:padding="10dp"
-                android:src="@drawable/sound"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintLeft_toLeftOf="@id/peshinguidelineItem3"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                <TextView
+                    android:id="@+id/namazPeshinTime"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:autoSizeTextType="uniform"
+                    android:fontFamily="@font/giveny"
+                    android:gravity="center"
+                    android:maxLines="1"
+                    android:padding="10dp"
+                    android:text="16:22"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintLeft_toLeftOf="@id/peshinguidelineItem2"
+                    app:layout_constraintRight_toLeftOf="@id/peshinguidelineItem3"
+                    app:layout_constraintTop_toTopOf="parent" />
 
-            <androidx.constraintlayout.widget.Guideline
-                android:id="@+id/peshinguidelineItem1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                app:layout_constraintGuide_percent="0.15" />
+                <ImageView
+                    android:id="@+id/namazPeshinAudio"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:padding="10dp"
+                    android:src="@drawable/sound"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintLeft_toLeftOf="@id/peshinguidelineItem3"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
-            <androidx.constraintlayout.widget.Guideline
-                android:id="@+id/peshinguidelineItem2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                app:layout_constraintGuide_percent="0.65" />
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/peshinguidelineItem1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_percent="0.15" />
 
-            <androidx.constraintlayout.widget.Guideline
-                android:id="@+id/peshinguidelineItem3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                app:layout_constraintGuide_percent="0.85" />
-        </androidx.constraintlayout.widget.ConstraintLayout>
-    </androidx.cardview.widget.CardView>
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/peshinguidelineItem2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_percent="0.65" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/peshinguidelineItem3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_percent="0.85" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.cardview.widget.CardView>
 
 
-
-    <androidx.cardview.widget.CardView
-        android:id="@+id/cardView3"
-        android:layout_marginStart="10dp"
-        android:layout_marginEnd="10dp"
-        android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:layout_marginTop="5dp"
-        app:layout_constraintTop_toBottomOf="@id/cardView2">
-
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardView3"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="0dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="10dp"
+            app:layout_constraintBottom_toBottomOf="@id/guideline4Cons"
+            app:layout_constraintTop_toBottomOf="@id/guideline3Cons">
 
-            <ImageView
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:padding="2dp"
-                android:src="@drawable/item_icon"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toLeftOf="@id/asrguidelineItem1"
-                app:layout_constraintTop_toTopOf="parent" />
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
 
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:autoSizeTextType="uniform"
-                android:fontFamily="@font/giveny"
-                android:gravity="center_vertical"
-                android:padding="10dp"
-                android:text="Asr"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintLeft_toLeftOf="@id/asrguidelineItem1"
-                app:layout_constraintRight_toLeftOf="@id/asrguidelineItem2"
-                app:layout_constraintTop_toTopOf="parent" />
+                <ImageView
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:padding="2dp"
+                    android:src="@drawable/item_icon"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toLeftOf="@id/asrguidelineItem1"
+                    app:layout_constraintTop_toTopOf="parent" />
 
-            <TextView
-                android:id="@+id/namazAsrTime"
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:autoSizeTextType="uniform"
-                android:fontFamily="@font/giveny"
-                android:gravity="center"
-                android:padding="10dp"
-                android:text="16:22"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintLeft_toLeftOf="@id/asrguidelineItem2"
-                app:layout_constraintRight_toLeftOf="@id/asrguidelineItem3"
-                app:layout_constraintTop_toTopOf="parent" />
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:autoSizeTextType="uniform"
+                    android:fontFamily="@font/giveny"
+                    android:gravity="center_vertical"
+                    android:padding="10dp"
+                    android:text="Asr"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintLeft_toLeftOf="@id/asrguidelineItem1"
+                    app:layout_constraintRight_toLeftOf="@id/asrguidelineItem2"
+                    app:layout_constraintTop_toTopOf="parent" />
 
-            <ImageView
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:padding="10dp"
-                android:src="@drawable/sound"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintLeft_toLeftOf="@id/asrguidelineItem3"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                <TextView
+                    android:id="@+id/namazAsrTime"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:autoSizeTextType="uniform"
+                    android:fontFamily="@font/giveny"
+                    android:gravity="center"
+                    android:maxLines="1"
+                    android:padding="10dp"
+                    android:text="16:22"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintLeft_toLeftOf="@id/asrguidelineItem2"
+                    app:layout_constraintRight_toLeftOf="@id/asrguidelineItem3"
+                    app:layout_constraintTop_toTopOf="parent" />
 
-            <androidx.constraintlayout.widget.Guideline
-                android:id="@+id/asrguidelineItem1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                app:layout_constraintGuide_percent="0.15" />
+                <ImageView
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:padding="10dp"
+                    android:src="@drawable/sound"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintLeft_toLeftOf="@id/asrguidelineItem3"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
-            <androidx.constraintlayout.widget.Guideline
-                android:id="@+id/asrguidelineItem2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                app:layout_constraintGuide_percent="0.65" />
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/asrguidelineItem1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_percent="0.15" />
 
-            <androidx.constraintlayout.widget.Guideline
-                android:id="@+id/asrguidelineItem3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                app:layout_constraintGuide_percent="0.85" />
-        </androidx.constraintlayout.widget.ConstraintLayout>
-    </androidx.cardview.widget.CardView>
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/asrguidelineItem2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_percent="0.65" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/asrguidelineItem3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_percent="0.85" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.cardview.widget.CardView>
 
 
-    <androidx.cardview.widget.CardView
-        android:id="@+id/cardView4"
-        android:layout_marginStart="10dp"
-        android:layout_marginEnd="10dp"
-        android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:layout_marginTop="5dp"
-        app:layout_constraintTop_toBottomOf="@id/cardView3">
-
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardView4"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="0dp"
+            android:layout_marginStart="10dp"
 
-            <ImageView
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:padding="2dp"
-                android:src="@drawable/item_icon"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toLeftOf="@id/shomguidelineItem1"
-                app:layout_constraintTop_toTopOf="parent" />
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="10dp"
+            app:layout_constraintBottom_toBottomOf="@id/guideline5Cons"
+            app:layout_constraintTop_toBottomOf="@id/guideline4Cons">
 
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:autoSizeTextType="uniform"
-                android:fontFamily="@font/giveny"
-                android:gravity="center_vertical"
-                android:padding="10dp"
-                android:text="Shom"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintLeft_toLeftOf="@id/shomguidelineItem1"
-                app:layout_constraintRight_toLeftOf="@id/shomguidelineItem2"
-                app:layout_constraintTop_toTopOf="parent" />
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
 
-            <TextView
-                android:id="@+id/namazShomTime"
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:autoSizeTextType="uniform"
-                android:fontFamily="@font/giveny"
-                android:gravity="center"
-                android:padding="10dp"
-                android:text="16:22"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintLeft_toLeftOf="@id/shomguidelineItem2"
-                app:layout_constraintRight_toLeftOf="@id/shomguidelineItem3"
-                app:layout_constraintTop_toTopOf="parent" />
+                <ImageView
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:padding="2dp"
+                    android:src="@drawable/item_icon"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toLeftOf="@id/shomguidelineItem1"
+                    app:layout_constraintTop_toTopOf="parent" />
 
-            <ImageView
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:padding="10dp"
-                android:src="@drawable/sound"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintLeft_toLeftOf="@id/shomguidelineItem3"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:autoSizeTextType="uniform"
+                    android:fontFamily="@font/giveny"
+                    android:gravity="center_vertical"
+                    android:padding="10dp"
+                    android:text="Shom"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintLeft_toLeftOf="@id/shomguidelineItem1"
+                    app:layout_constraintRight_toLeftOf="@id/shomguidelineItem2"
+                    app:layout_constraintTop_toTopOf="parent" />
 
-            <androidx.constraintlayout.widget.Guideline
-                android:id="@+id/shomguidelineItem1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                app:layout_constraintGuide_percent="0.15" />
+                <TextView
+                    android:id="@+id/namazShomTime"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:autoSizeTextType="uniform"
+                    android:fontFamily="@font/giveny"
+                    android:gravity="center"
+                    android:maxLines="1"
+                    android:padding="10dp"
+                    android:text="16:22"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintLeft_toLeftOf="@id/shomguidelineItem2"
+                    app:layout_constraintRight_toLeftOf="@id/shomguidelineItem3"
+                    app:layout_constraintTop_toTopOf="parent" />
 
-            <androidx.constraintlayout.widget.Guideline
-                android:id="@+id/shomguidelineItem2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                app:layout_constraintGuide_percent="0.65" />
+                <ImageView
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:padding="10dp"
+                    android:src="@drawable/sound"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintLeft_toLeftOf="@id/shomguidelineItem3"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
-            <androidx.constraintlayout.widget.Guideline
-                android:id="@+id/shomguidelineItem3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                app:layout_constraintGuide_percent="0.85" />
-        </androidx.constraintlayout.widget.ConstraintLayout>
-    </androidx.cardview.widget.CardView>
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/shomguidelineItem1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_percent="0.15" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/shomguidelineItem2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_percent="0.65" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/shomguidelineItem3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_percent="0.85" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.cardview.widget.CardView>
 
 
-
-    <androidx.cardview.widget.CardView
-        android:layout_marginStart="10dp"
-        android:layout_marginEnd="10dp"
-        android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:layout_marginTop="5dp"
-        app:layout_constraintTop_toBottomOf="@id/cardView4">
-
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="0dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="10dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/guideline5Cons">
 
-            <ImageView
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:padding="2dp"
-                android:src="@drawable/item_icon"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toLeftOf="@id/xuftonguidelineItem1"
-                app:layout_constraintTop_toTopOf="parent" />
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
 
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:autoSizeTextType="uniform"
-                android:fontFamily="@font/giveny"
-                android:gravity="center_vertical"
-                android:padding="10dp"
-                android:text="Xufton"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintLeft_toLeftOf="@id/xuftonguidelineItem1"
-                app:layout_constraintRight_toLeftOf="@id/xuftonguidelineItem2"
-                app:layout_constraintTop_toTopOf="parent" />
+                <ImageView
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:padding="2dp"
+                    android:src="@drawable/item_icon"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toLeftOf="@id/xuftonguidelineItem1"
+                    app:layout_constraintTop_toTopOf="parent" />
 
-            <TextView
-                android:id="@+id/namazXuftomTime"
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:autoSizeTextType="uniform"
-                android:fontFamily="@font/giveny"
-                android:gravity="center"
-                android:padding="10dp"
-                android:text="16:22"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintLeft_toLeftOf="@id/xuftonguidelineItem2"
-                app:layout_constraintRight_toLeftOf="@id/xuftonguidelineItem3"
-                app:layout_constraintTop_toTopOf="parent" />
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:autoSizeTextType="uniform"
+                    android:fontFamily="@font/giveny"
+                    android:gravity="center_vertical"
+                    android:padding="10dp"
+                    android:text="Xufton"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintLeft_toLeftOf="@id/xuftonguidelineItem1"
+                    app:layout_constraintRight_toLeftOf="@id/xuftonguidelineItem2"
+                    app:layout_constraintTop_toTopOf="parent" />
 
-            <ImageView
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:padding="10dp"
-                android:src="@drawable/sound"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintLeft_toLeftOf="@id/xuftonguidelineItem3"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                <TextView
+                    android:id="@+id/namazXuftomTime"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:autoSizeTextType="uniform"
+                    android:fontFamily="@font/giveny"
+                    android:gravity="center"
+                    android:maxLines="1"
+                    android:padding="10dp"
+                    android:text="16:22"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintLeft_toLeftOf="@id/xuftonguidelineItem2"
+                    app:layout_constraintRight_toLeftOf="@id/xuftonguidelineItem3"
+                    app:layout_constraintTop_toTopOf="parent" />
 
-            <androidx.constraintlayout.widget.Guideline
-                android:id="@+id/xuftonguidelineItem1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                app:layout_constraintGuide_percent="0.15" />
+                <ImageView
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:padding="10dp"
+                    android:src="@drawable/sound"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintLeft_toLeftOf="@id/xuftonguidelineItem3"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
-            <androidx.constraintlayout.widget.Guideline
-                android:id="@+id/xuftonguidelineItem2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                app:layout_constraintGuide_percent="0.65" />
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/xuftonguidelineItem1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_percent="0.15" />
 
-            <androidx.constraintlayout.widget.Guideline
-                android:id="@+id/xuftonguidelineItem3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                app:layout_constraintGuide_percent="0.85" />
-        </androidx.constraintlayout.widget.ConstraintLayout>
-    </androidx.cardview.widget.CardView>
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/xuftonguidelineItem2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_percent="0.65" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/xuftonguidelineItem3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_percent="0.85" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline2Cons"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.2" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline3Cons"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.4" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline4Cons"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.6" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline5Cons"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.8" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
