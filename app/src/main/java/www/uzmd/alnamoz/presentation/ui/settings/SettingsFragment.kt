@@ -58,6 +58,7 @@ class SettingsFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
         val ms = ArrayList<String>()
         ms.add("Xonqa")
         ms.add("Urganch")
@@ -67,7 +68,7 @@ class SettingsFragment : Fragment() {
             val rayon = binding.autoCompleteTextView.text.toString()
             val name = binding.ismEdt.text.toString()
             val familia = binding.familiaEdt.text.toString()
-            viewModel.addUser(name, familia, rayon)
+            viewModel.addUser(name?:"", familia?:"", rayon?:"xonqa")
         }
         viewModel.btnLiveData.observe(viewLifecycleOwner, Observer {
             requireActivity().supportFragmentManager.beginTransaction()

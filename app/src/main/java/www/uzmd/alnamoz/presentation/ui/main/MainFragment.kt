@@ -1,14 +1,20 @@
 package www.uzmd.alnamoz.presentation.ui.main
 
+import android.app.AlertDialog
+import android.app.Dialog
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.Window
+import android.widget.ArrayAdapter
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
+import www.uzmd.alnamoz.R
+import www.uzmd.alnamoz.databinding.DialogItemBinding
 import www.uzmd.alnamoz.databinding.FragmentMainBinding
 import java.text.SimpleDateFormat
 import java.time.LocalDateTime
@@ -58,9 +64,32 @@ class MainFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        viewModel.load()
+        val dialog = AlertDialog.Builder(requireActivity()).create()
+        val dialogBindig =
+            DialogItemBinding.inflate(LayoutInflater.from(requireActivity()), null, false)
+        dialog.setView(dialogBindig.root)
+        val ms = ArrayList<String>()
+        ms.add("Xonqa")
+        ms.add("Urganch")
+        val arrayAdapter = ArrayAdapter(requireContext(), R.layout.drop_down_item, ms)
+        dialogBindig.selectRegionEditDialog.setAdapter(arrayAdapter)
+        binding.userSettings.setOnClickListener {
+            dialog.show()
+        }
+        dialogBindig.saqlasjDialog.setOnClickListener {
+            dialog.dismiss()
+            val familia = dialogBindig.familiaEditDeilago.text.toString()
+            val ism = dialogBindig.ismEdtDialog.text.toString()
+            val region = dialogBindig.selectRegionEditDialog.text.toString()
+            viewModel.addUser(ism, familia, region)
+            binding.userNameMain.text = "Salom ${viewModel.getUserInfofunc().name}"
+        }
         lifecycleScope.launch {
-            while (true) {
 
+
+
+            while (true) {
                 val calendar = Calendar.getInstance().time.time
                 val localTime = SimpleDateFormat("HH:mm")
                 val datetime = localTime.format(calendar)
@@ -70,50 +99,59 @@ class MainFragment : Fragment() {
                 val datetimeHour = localHour.format(calendar)
                 val datetimeMinutes = localMinutes.format(calendar)
                 val nextNamaz = viewModel.nextNamaz(datetimeHour.toInt(), datetimeMinutes.toInt())
-                var namazType = when (nextNamaz[0]) {
-                    0 -> {
-                        "Bomdot"
-                    }
+                if (nextNamaz[1] != -1) {
+                    var namazType = when (nextNamaz[0]) {
+                        0 -> {
+                            "Bomdot"
+                        }
 
-                    1 -> {
-                        "Peshin"
-                    }
+                        1 -> {
+                            "Peshin"
+                        }
 
-                    2 -> {
-                        "Asr"
-                    }
+                        2 -> {
+                            "Asr"
+                        }
 
-                    3 -> {
-                        "Shom"
-                    }
+                        3 -> {
+                            "Shom"
+                        }
 
-                    4 -> {
-                        "Xufton"
-                    }
+                        4 -> {
+                            "Xufton"
+                        }
 
-                    else -> {
-                        throw RuntimeException("error whlie")
+                        else -> {
+                            throw RuntimeException("error whlie")
+                        }
+                    }
+                    binding.nextNamazTime.text =
+                        "$namazType ga ${nextNamaz[1]} soat ${nextNamaz[2]} daqiqa qoldi"
+
+                } else {
+                    binding.nextNamazTime.text = "Xayirli kech"
+                }
+                val times = viewModel.getTimes()
+                if(times.asr!="10"){
+                    var saxarlik = times.tongSaharlik.toString()
+                    var peshin = times.peshin.toString()
+                    var asr = times.asr.toString()
+                    var hufton = times.hufton.toString()
+                    var shom = times.shomIftor.toString()
+                    binding.apply {
+                        bomdotTime.text = saxarlik
+                        namazAsrTime.text = asr
+                        namazXuftomTime.text = hufton
+                        namazShomTime.text = shom
+                        namazPeshinTime.text = peshin
                     }
                 }
-                binding.nextNamazTime.text =
-                    "$namazType ga ${nextNamaz[1]} soat ${nextNamaz[2]} daqiqa qoldi"
-                delay(10000)
+                delay(1000)
             }
         }
+
         binding.userNameMain.text = "Salom ${viewModel.getUserInfofunc().name}"
-        val times = viewModel.getTimes()
-        var saxarlik = times.tongSaharlik.toString()
-        var peshin = times.peshin.toString()
-        var asr = times.asr.toString()
-        var hufton = times.hufton.toString()
-        var shom = times.shomIftor.toString()
-        binding.apply {
-            bomdotTime.text = saxarlik
-            namazAsrTime.text = asr
-            namazXuftomTime.text = hufton
-            namazShomTime.text = shom
-            namazPeshinTime.text = peshin
-        }
+
         val userInfofunc = viewModel.getUserInfofunc()
 
 

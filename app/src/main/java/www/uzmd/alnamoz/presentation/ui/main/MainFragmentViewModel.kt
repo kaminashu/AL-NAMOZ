@@ -20,9 +20,9 @@ class MainFragmentViewModel(application: Application) :
     private val imple = RepoImple(application)
     private val getUserInfo = GetUserInfo(imple)
     private val getTimeUsecase = GetTimeUsecase(imple)
+    private val addUseCase = AddUser(imple)
     private val loadUsecase = LoadUsecase(imple)
-
-    init {
+    fun load(){
         loadUsecase.invoke()
     }
 
@@ -47,8 +47,8 @@ class MainFragmentViewModel(application: Application) :
         ms.add(saxarlik)
         ms.add(peshin)
         ms.add(asr)
-        ms.add(hufton)
         ms.add(shom)
+        ms.add(hufton)
         var s = 0
         for (i in ms) {
 
@@ -69,8 +69,16 @@ class MainFragmentViewModel(application: Application) :
                     ms2[2] = minutes
                     return ms2
                 }
+            }else{
+                ms2[1] = -1
+                ms2[2] = -1
+                return ms2
             }
         }
         return ms2
+    }
+    fun addUser(name: String, familia: String, region: String) {
+        val userModel = UserModel(name = name, familia = familia, region = region)
+        addUseCase(userModel)
     }
 }

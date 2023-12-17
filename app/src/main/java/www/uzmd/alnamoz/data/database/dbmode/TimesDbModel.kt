@@ -8,10 +8,10 @@ import com.google.gson.annotations.SerializedName
 class TimesDbModel(
     @PrimaryKey(autoGenerate = true)
     var id: Int = 1,
-    val asr: String? = null,
-    val quyosh: String? = null,
-    val hufton: String? = null,
-    val shomIftor: String? = null,
-    val tongSaharlik: String? = null,
-    val peshin: String? = null
+    val asr: String,
+    val quyosh: String,
+    val hufton: String,
+    val shomIftor: String,
+    val tongSaharlik: String,
+    val peshin: String
 )

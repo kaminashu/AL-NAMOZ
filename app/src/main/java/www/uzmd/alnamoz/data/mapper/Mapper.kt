@@ -11,25 +11,25 @@ class Mapper {
         return UserDbModel(userModel.id, userModel.name, userModel.familia, userModel.region)
     }
 
-    fun mapperTimesModelToTimesDbModel(times: Times): TimesDbModel {
+    fun mapperTimesModelToTimesDbModel(times: Times?): TimesDbModel {
         return TimesDbModel(
-            asr = times.asr,
-            hufton = times.hufton,
-            quyosh = times.quyosh,
-            shomIftor = times.shomIftor,
-            tongSaharlik = times.tongSaharlik,
-            peshin = times.peshin
+            asr = times?.asr?:"",
+            hufton = times?.hufton?:"",
+            quyosh = times?.quyosh?:"",
+            shomIftor = times?.shomIftor?:"",
+            tongSaharlik = times?.tongSaharlik?:"",
+            peshin = times?.peshin?:""
         )
     }
 
-    fun mapperTimesDbModelToNamazTime(timesDbModel: TimesDbModel): NamazTime {
+    fun mapperTimesDbModelToNamazTime(timesDbModel: TimesDbModel?): NamazTime {
         return NamazTime(
-            asr = timesDbModel.asr,
-            quyosh = timesDbModel.quyosh,
-            hufton = timesDbModel.hufton,
-            shomIftor = timesDbModel.shomIftor,
-            tongSaharlik = timesDbModel.tongSaharlik,
-            peshin = timesDbModel.peshin
+            asr = timesDbModel?.asr?:"10",
+            quyosh = timesDbModel?.quyosh?:"10",
+            hufton = timesDbModel?.hufton?:"10",
+            shomIftor = timesDbModel?.shomIftor?:"10",
+            tongSaharlik = timesDbModel?.tongSaharlik?:"10",
+            peshin = timesDbModel?.peshin?:"10"
         )
     }
 

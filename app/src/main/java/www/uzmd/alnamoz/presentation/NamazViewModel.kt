@@ -8,7 +8,7 @@ import www.uzmd.alnamoz.data.repoimple.RepoImple
 import www.uzmd.alnamoz.domain.entities.NamazTime
 import www.uzmd.alnamoz.domain.entities.UserModel
 import www.uzmd.alnamoz.domain.usecases.AddUser
-import www.uzmd.alnamoz.domain.usecases.GetTimeUsecase
+
 import www.uzmd.alnamoz.domain.usecases.GetUserInfo
 import www.uzmd.alnamoz.domain.usecases.LoadUsecase
 
@@ -21,6 +21,7 @@ class NamazViewModel(application: Application) : AndroidViewModel(application) {
 
     val btnLiveData: MutableLiveData<Boolean>
         get() = _mutableLiveDataBtn
+
 
     fun addUser(name: String, familia: String, region: String) {
         val userModel = UserModel(name = name, familia = familia, region = region)

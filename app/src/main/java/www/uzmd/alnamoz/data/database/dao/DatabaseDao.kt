@@ -12,4 +12,5 @@ interface DatabaseDao {
     fun addUser(userDbModel: UserDbModel)
     @Query("SELECT * FROM user where id=1")
     fun getUser(): UserDbModel
+
 }

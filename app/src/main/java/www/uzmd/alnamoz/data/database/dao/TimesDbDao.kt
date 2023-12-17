@@ -10,5 +10,5 @@ interface TimesDbDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun addTimes(timesDbModel: TimesDbModel)
     @Query("select * from time where id=1")
-    fun getTimesInfo():TimesDbModel
+    fun getTimesInfo():TimesDbModel?
 }
